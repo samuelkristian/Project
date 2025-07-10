@@ -1,0 +1,857 @@
+/* style.css - Modernized and Enhanced Version */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-green: #2ecc71; /* A slightly softer, modern green */
+    --secondary-green: #27ae60;
+    --dark-blue: #2c3e50; /* For headings and strong text */
+    --light-gray: #ecf0f1; /* For background sections */
+    --text-color: #7f8c8d; /* For general text */
+    --box-shadow: 0 0.8rem 2.5rem rgba(0, 0, 0, .15); /* More pronounced, soft shadow */
+    --hover-shadow: 0 1.5rem 4rem rgba(0, 0, 0, .2); /* Stronger shadow on hover */
+}
+
+/* Universal Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    text-transform: capitalize;
+    transition: all .3s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smoother cubic-bezier transition */
+    font-weight: normal;
+    font-family: 'Poppins', sans-serif; /* Modern font */
+}
+
+*::selection {
+    background: var(--primary-green);
+    color: #fff;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 7.5rem; /* Adjusted for fixed header */
+    scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar {
+    width: 1.3rem;
+}
+
+html::-webkit-scrollbar-track {
+    background: #f0f0f0; /* Lighter track */
+}
+
+html::-webkit-scrollbar-thumb {
+    background: var(--primary-green);
+    border-radius: 10px; /* Rounded scrollbar thumb */
+}
+
+section {
+    min-height: 100vh;
+    padding: 0 7%;
+    padding-top: 9rem; /* Adjusted for larger padding top */
+    display: flex; /* Ensures content fills space for alignment */
+    flex-direction: column; /* Stacks content vertically */
+    justify-content: center; /* Centers content vertically */
+    align-items: center; /* Centers content horizontally */
+    text-align: center; /* Default text alignment for sections */
+}
+
+/* Utility Classes */
+.btn {
+    display: inline-block;
+    border: .2rem solid var(--primary-green);
+    font-size: 1.7rem;
+    color: var(--primary-green);
+    background: rgba(46, 204, 113, .1); /* Lighter green tint */
+    margin-top: 1.5rem; /* Increased margin */
+    padding: 1rem 4rem; /* Slightly larger padding */
+    border-radius: 0.8rem; /* More rounded corners */
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background: var(--primary-green);
+    z-index: -1;
+    transition: width .3s ease-in-out;
+}
+
+.btn:hover::before {
+    width: 100%;
+}
+
+.btn:hover {
+    color: #fff;
+    transform: translateY(-0.3rem); /* Subtle lift */
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, .2); /* Slight shadow on hover */
+}
+
+.heading {
+    font-size: 5rem; /* Larger heading for impact */
+    color: var(--dark-blue); /* Stronger color */
+    text-align: center;
+    text-transform: uppercase;
+    padding: 2.5rem 1rem; /* More padding */
+    margin-bottom: 4rem; /* More space below heading */
+    letter-spacing: .1rem; /* Slight letter spacing */
+    position: relative;
+}
+
+.heading::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8rem; /* Underline length */
+    height: 0.4rem; /* Underline thickness */
+    background: var(--primary-green);
+    border-radius: 5px;
+}
+
+.heading span {
+    color: var(--primary-green);
+}
+
+/* Header */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.8rem 7%; /* Slightly more padding top/bottom */
+    box-shadow: var(--box-shadow); /* Modern shadow */
+}
+
+header .logo {
+    display: flex; /* Menggunakan flexbox untuk mengatur elemen di dalamnya */
+    align-items: center; /* Menyelaraskan item secara vertikal di tengah */
+    gap: 10px; /* Memberikan sedikit jarak antara logo dan teks */
+    font-size: 3.2rem; /* Ukuran font untuk teks "Mitra Biosfer Indonesia" */
+    color: var(--dark-blue);
+    font-weight: 700; /* Bolder logo */
+    letter-spacing: .05rem;
+    text-decoration: none; /* Menghilangkan underline pada link */
+}
+
+.header-logo {
+    height: 126px; /* Diperbesar dari 40px menjadi 60px */
+    width: auto; /* Mengatur lebar otomatis agar aspek rasio terjaga */
+    /* Anda juga bisa menambahkan margin-right jika perlu lebih banyak spasi */
+    /* margin-right: 10px; */
+}
+
+header .logo span {
+    color: var(--primary-green);
+}
+
+header .navbar a {
+    font-size: 1.9rem; /* Slightly larger nav links */
+    margin-left: 2.8rem; /* More spacing */
+    color: var(--text-color);
+    position: relative;
+    font-weight: 500;
+}
+
+header .navbar a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    background: var(--primary-green);
+    bottom: -8px; /* Slightly lower underline */
+    left: 0;
+    transition: width .3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+header .navbar a:hover::after {
+    width: 100%;
+}
+
+header .navbar a:hover {
+    color: var(--primary-green);
+}
+
+#menu {
+    font-size: 3.2rem; /* Larger icon */
+    color: var(--dark-blue);
+    border: .1rem solid rgba(0, 0, 0, .15); /* Slightly darker border */
+    border-radius: .5rem;
+    padding: 1rem 1.6rem; /* Adjusted padding */
+    cursor: pointer;
+    display: none;
+}
+
+/* Home Section */
+.home {
+    min-height: 90vh; /* Increased height for better visual impact */
+    background: linear-gradient(90deg, rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.6)), url(../images/home-bg.jpg) no-repeat; /* Darker overlay for contrast */
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    display: flex; /* Use flex for centering content */
+    align-items: center;
+    justify-content: flex-start; /* Align content to the left */
+    text-align: left; /* Align text to left */
+    padding-left: 7%; /* Ensure consistent section padding */
+    padding-right: 7%;
+}
+
+.home .content {
+    max-width: 70rem; /* Increased max-width for more content */
+    padding: 6rem 0; /* More padding */
+    padding-bottom: 10rem;
+    position: relative; /* For animation purposes */
+    animation: fadeInContent 1s ease-out forwards; /* Fade in animation */
+    opacity: 0; /* Start hidden for animation */
+    transform: translateY(20px);
+}
+
+@keyframes fadeInContent {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.home .content h3 {
+    color: #fff;
+    font-size: 6.5rem; /* Larger for impact */
+    line-height: 1.2;
+    margin-bottom: 2rem; /* More margin */
+    text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, .3); /* Subtle text shadow */
+}
+
+.home .content p {
+    color: #f0f0f0; /* Lighter text color */
+    font-size: 1.9rem; /* Slightly larger text */
+    padding: 1rem 0;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+}
+
+/* Icons Container */
+.icons-container {
+    display: grid; /* Using grid for better control */
+    grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr)); /* Adjusted minmax */
+    gap: 2.5rem; /* More spacing */
+    margin-top: -8rem; /* Adjusted margin top */
+    padding: 4rem 7%; /* Adjusted padding for section consistency */
+    background: #fff; /* Ensure white background for contrast */
+    position: relative;
+    z-index: 50; /* Bring it above content if needed */
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, .05); /* Lighter shadow for the container */
+}
+
+.icons-container .icons {
+    padding: 3rem 2rem; /* More internal padding */
+    border-radius: 1.2rem; /* More rounded corners */
+    box-shadow: var(--box-shadow); /* Consistent shadow */
+    text-align: center;
+    background: #fff;
+    position: relative; /* For hover effect */
+    overflow: hidden; /* To clip background effect */
+    transform: scale(1); /* Initial scale for animation */
+    transition: transform .3s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow .3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.icons-container .icons::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, var(--primary-green), var(--secondary-green));
+    transform: translateY(100%);
+    transition: transform .4s ease-out;
+    z-index: -1;
+}
+
+.icons-container .icons:hover::before {
+    transform: translateY(0);
+}
+
+.icons-container .icons:hover {
+    color: #fff; /* Text color change on hover */
+    transform: translateY(-1rem) scale(1.02); /* More prominent lift and slight scale */
+    box-shadow: var(--hover-shadow); /* Stronger shadow on hover */
+}
+
+.icons-container .icons:hover h3,
+.icons-container .icons:hover p,
+.icons-container .icons:hover i { /* Ensure icons also change color if using font icons */
+    color: #fff; /* Ensure text colors change on hover */
+}
+
+
+.icons-container .icons img {
+    height: 8rem; /* Slightly larger icons */
+    width: 8rem;
+    margin-bottom: 2rem; /* More space below icon */
+}
+
+.icons-container .icons h3 {
+    font-size: 3rem; /* Larger heading */
+    color: var(--dark-blue);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.icons-container .icons p {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    line-height: 1.8;
+}
+
+/* Project Section */
+.project .box-container {
+    display: grid; /* Use grid for better control */
+    grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr)); /* Consistent size */
+    gap: 3rem; /* More spacing */
+    justify-content: center;
+    width: 100%; /* Ensure container takes full width */
+    max-width: 1200px; /* Optional: max width for larger screens */
+}
+
+.project .box-container .box {
+    border-radius: 1.2rem; /* More rounded corners */
+    height: 42rem; /* Fixed height for consistency */
+    box-shadow: var(--box-shadow);
+    background: #fff; /* Ensure background */
+    position: relative; /* For absolute positioning of info */
+    overflow: hidden; /* To hide info initially */
+    transform: translateY(0);
+    transition: transform .3s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow .3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.project .box-container .box:hover {
+    transform: translateY(-1rem); /* Subtle lift */
+    box-shadow: var(--hover-shadow); /* Stronger shadow */
+}
+
+.project .box-container .box img {
+    height: 70%; /* Image takes more space */
+    width: 100%;
+    object-fit: cover;
+    border-top-left-radius: 1.2rem; /* Match parent border-radius */
+    border-top-right-radius: 1.2rem;
+    transition: transform 0.5s ease; /* Smooth image zoom */
+}
+
+.project .box-container .box:hover img {
+    transform: scale(1.05);
+}
+
+.project .box-container .box .title {
+    font-size: 2.8rem; /* Larger title */
+    background: linear-gradient(transparent, rgba(0, 0, 0, .8)); /* Darker gradient */
+    padding: 1.5rem;
+    position: absolute; /* Position over image */
+    bottom: 30%; /* Adjust as needed */
+    width: 100%;
+    color: #fff;
+    font-weight: 600;
+    padding-bottom: 2.5rem; /* More padding at bottom to reveal text */
+    pointer-events: none; /* Allows clicks through to elements below if needed */
+}
+
+.project .box-container .box .info {
+    background: #fff;
+    border-radius: 1.2rem; /* Consistent radius */
+    padding: 2.5rem; /* More padding */
+    position: absolute;
+    bottom: 0; /* Start at bottom */
+    left: 0; /* Align to left */
+    width: 100%; /* Full width */
+    transform: translateY(100%); /* Hidden below */
+    transition: transform .4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.project .box-container .box:hover .info {
+    transform: translateY(0); /* Slide up */
+}
+
+.project .box-container .box .info h3 {
+    color: var(--dark-blue); /* Darker heading */
+    font-size: 2.4rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.project .box-container .box .info p {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    padding: 0.8rem 0;
+    line-height: 1.7;
+}
+
+.project .box-container .box .info a {
+    color: var(--primary-green);
+    font-size: 1.6rem;
+    margin-top: 1.5rem;
+    display: inline-block;
+    font-weight: 500;
+    position: relative;
+    padding-right: 1.5rem;
+}
+
+.project .box-container .box .info a::after {
+    content: '\2192'; /* Right arrow character */
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: opacity .3s ease-in-out, right .3s ease-in-out;
+}
+
+.project .box-container .box .info a:hover::after {
+    opacity: 1;
+    right: -5px; /* Slide arrow slightly */
+}
+
+.project .box-container .box .info a:hover {
+    text-decoration: underline;
+    color: var(--secondary-green);
+}
+
+
+/* Donate Section (Used for Why Us) */
+.donate {
+    min-height: auto;
+    background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)), url(../images/donate-bg.jpg) no-repeat; /* Darker overlay */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 8rem 7%; /* More padding for consistency */
+    display: flex;
+    flex-direction: column; /* Stack content */
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.donate .donate-heading { /* Added a separate heading for better styling */
+    font-size: 5rem;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 4rem;
+    letter-spacing: .1rem;
+    text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, .3);
+}
+
+.donate .donate-heading span {
+    color: var(--primary-green);
+}
+
+.donate .box-container {
+    display: grid; /* Use grid */
+    grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr)); /* Adjusted minmax */
+    gap: 2.5rem; /* More spacing */
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+    margin-bottom: 4rem; /* Space between boxes and donate-box */
+}
+
+.donate .box-container .box {
+    border: .1rem solid rgba(255, 255, 255, .2); /* Lighter border */
+    border-radius: 1.2rem; /* More rounded */
+    text-align: center;
+    padding: 3.5rem; /* More padding */
+    background: rgba(255, 255, 255, .08); /* More subtle background */
+    backdrop-filter: blur(8px); /* Glassmorphism effect */
+    box-shadow: 0 0.8rem 2rem rgba(0, 0, 0, .3); /* Stronger shadow */
+    transition: transform .3s cubic-bezier(0.25, 0.46, 0.45, 0.94), background .3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.donate .box-container .box:hover {
+    transform: translateY(-0.8rem); /* Lift effect */
+    background: rgba(255, 255, 255, .15); /* Slightly more opaque on hover */
+    box-shadow: 0 1.2rem 3rem rgba(0, 0, 0, .4);
+}
+
+.donate .box-container .box i {
+    color: var(--primary-green); /* Green icon */
+    font-size: 5.5rem; /* Larger icon */
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 10px var(--primary-green); /* Subtle glow */
+}
+
+.donate .box-container .box h3 {
+    color: #fff;
+    font-size: 3rem; /* Larger heading */
+    padding: 1rem 0;
+    font-weight: 600;
+}
+
+.donate .box-container .box p {
+    color: #e8e8e8; /* Lighter text */
+    font-size: 1.7rem;
+    padding: .8rem 0;
+    line-height: 1.7;
+}
+
+/* Team Section (Used for Values) */
+.team {
+    background: var(--light-gray); /* Use defined light gray */
+}
+
+.team .box-container {
+    display: grid; /* Use grid */
+    grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+    gap: 3rem;
+    justify-content: center;
+    align-items: flex-start; /* Align to top */
+    width: 100%;
+    max-width: 1200px;
+}
+
+.team .box-container .box {
+    border-radius: 1.2rem;
+    background: #fff;
+    padding: 2rem; /* More padding */
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    height: auto; /* Auto height to fit content */
+    position: relative;
+    overflow: hidden;
+    transform: translateY(0);
+    transition: transform .3s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow .3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.team .box-container .box:hover {
+    transform: translateY(-1.2rem); /* More prominent lift effect */
+    box-shadow: var(--hover-shadow); /* Stronger shadow */
+}
+
+.team .box-container .box img {
+    height: 28rem; /* Fixed height for consistency */
+    width: 100%;
+    object-fit: cover;
+    border-radius: 1rem; /* Rounded image corners */
+    margin-bottom: 2rem;
+    filter: grayscale(100%); /* Grayscale effect */
+    transition: filter 0.5s ease-in-out;
+}
+
+.team .box-container .box:hover img {
+    filter: grayscale(0%); /* Color on hover */
+}
+
+.team .box-container .box .info {
+    position: relative; /* Changed to relative for simpler layout */
+    background: #fff;
+    padding: 1.5rem 0;
+    z-index: 10;
+    /* Removed absolute positioning for cleaner default display */
+}
+
+
+.team .box-container .box .info h3 {
+    font-size: 2.8rem;
+    color: var(--dark-blue);
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+}
+
+.team .box-container .box .info p {
+    font-size: 1.7rem;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Legalitas Section */
+.legalitas {
+    background: var(--light-gray); /* Match team section background */
+    padding: 8rem 7%; /* Consistent padding */
+}
+
+.legalitas .box-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 900px; /* Limit width for readability */
+}
+
+.legalitas .box-container .box {
+    background: #fff;
+    padding: 4rem;
+    border-radius: 1.2rem;
+    box-shadow: var(--box-shadow);
+    text-align: left; /* Align text left for legal info */
+    width: 100%;
+}
+
+.legalitas .box-container .box h3 {
+    font-size: 3.2rem;
+    color: var(--dark-blue);
+    margin-bottom: 2.5rem;
+    text-align: center;
+}
+
+.legalitas .box-container .box p {
+    font-size: 1.8rem;
+    color: var(--text-color);
+    line-height: 2;
+    margin-bottom: 1rem;
+}
+
+.legalitas .box-container .box p strong {
+    color: var(--dark-blue); /* Stronger color for bold text */
+}
+
+/* Footer */
+.footer {
+    background: var(--dark-blue); /* Darker blue for footer */
+    padding: 5rem 7%; /* More padding */
+}
+
+.footer .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr)); /* Adjusted minmax for more even columns */
+    gap: 3rem;
+    justify-content: center;
+}
+
+.footer .box-container .box h3 {
+    color: #fff;
+    font-size: 2.8rem; /* Larger heading */
+    padding-bottom: 2rem;
+    border-bottom: .2rem solid rgba(255, 255, 255, .1); /* Subtle separator */
+    margin-bottom: 2rem;
+}
+
+.footer .box-container .box p {
+    color: #e0e0e0; /* Lighter text for readability */
+    font-size: 1.6rem;
+    line-height: 1.8;
+}
+
+.footer .box-container .box a {
+    color: #e0e0e0;
+    font-size: 1.6rem;
+    padding: 1rem 0;
+    display: block; /* Make links block level */
+    transition: color .2s ease;
+}
+
+.footer .box-container .box a:hover {
+    color: var(--primary-green);
+    text-decoration: underline;
+}
+
+.footer .box-container .box i {
+    padding-right: 1rem;
+    color: var(--primary-green);
+}
+
+/* Specific styling for WhatsApp link in footer */
+.footer .box-container .box .whatsapp-link a {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem; /* Space between icon and text */
+    font-size: 1.8rem; /* Slightly larger for WhatsApp link */
+    padding: 1rem 0;
+}
+
+.footer .box-container .box .whatsapp-link i {
+    font-size: 2.2rem; /* Make WhatsApp icon larger */
+    vertical-align: middle; /* Align icon vertically */
+    padding-right: 0; /* Remove extra padding if any */
+}
+
+
+/* Media Queries */
+@media (max-width: 991px) {
+    html {
+        font-size: 55%;
+    }
+
+    header {
+        padding: 1.8rem 3%; /* Adjust header padding */
+    }
+
+    section {
+        padding: 0 3%; /* Adjust section padding */
+        padding-top: 9rem;
+    }
+
+    .home .content {
+        text-align: center; /* Center content on smaller screens */
+        padding: 4rem 0;
+    }
+    .home .content h3 {
+        font-size: 5.5rem;
+    }
+    .home .content p {
+        font-size: 1.7rem;
+    }
+
+    .icons-container {
+        margin-top: 0; /* Remove negative margin on small screens */
+        padding-top: 9rem; /* Ensure padding from header */
+    }
+
+    .legalitas .box-container .box {
+        padding: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 50%; /* Further decrease base font size for smaller devices */
+    }
+
+    #menu {
+        display: block;
+    }
+
+    header .navbar {
+        position: fixed;
+        top: 8rem; /* Below header */
+        left: -120%; /* Hidden by default */
+        background: #fff;
+        width: 30rem;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        box-shadow: var(--box-shadow);
+        border-right: .1rem solid rgba(0, 0, 0, .1);
+        transition: left .4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    header .navbar.active {
+        left: 0; /* Slide in */
+    }
+
+    header .navbar a {
+        font-size: 2.2rem;
+        margin: 1.5rem 0;
+        display: block; /* Ensure links take full width in mobile nav */
+    }
+
+    .home .content h3 {
+        font-size: 4.5rem; /* Smaller heading for very small screens */
+    }
+    .home .content p {
+        font-size: 1.6rem; /* Slightly smaller text for very small screens */
+    }
+
+    .icons-container {
+        grid-template-columns: 1fr; /* Stack icons vertically on small screens */
+        padding: 4rem 5%; /* Adjust padding for icons container */
+    }
+
+    .icons-container .icons h3 {
+        font-size: 2.5rem; /* Adjust icon heading size */
+    }
+    .icons-container .icons p {
+        font-size: 1.6rem; /* Make text more readable */
+    }
+
+    .project .box-container {
+        grid-template-columns: 1fr; /* Stack projects vertically on small screens */
+        padding: 0 5%; /* Adjust padding for project container */
+    }
+
+    .project .box-container .box {
+        height: auto; /* Allow height to adjust */
+    }
+
+    .project .box-container .box .info p {
+        font-size: 1.6rem; /* Make project info text more readable */
+    }
+
+    .donate .box-container {
+        grid-template-columns: 1fr; /* Stack donate boxes vertically */
+        padding: 0 5%;
+    }
+    .donate .box-container .box p {
+        font-size: 1.6rem; /* Make donate text more readable */
+    }
+
+    .team .box-container {
+        grid-template-columns: 1fr; /* Stack team boxes vertically */
+        padding: 0 5%;
+    }
+    .team .box-container .box .info p {
+        font-size: 1.6rem; /* Make team info text more readable */
+    }
+
+    .legalitas .box-container .box {
+        padding: 2.5rem; /* Smaller padding for legalitas on very small screens */
+    }
+    .legalitas .box-container .box h3 {
+        font-size: 2.8rem;
+    }
+    .legalitas .box-container .box p {
+        font-size: 1.6rem; /* Make legalitas text more readable */
+        line-height: 1.8;
+    }
+
+    .footer .box-container {
+        grid-template-columns: 1fr; /* Stack footer columns vertically */
+        text-align: center; /* Center footer content */
+    }
+    .footer .box-container .box h3 {
+        font-size: 2.5rem; /* Adjust footer heading size */
+        padding-bottom: 1.5rem;
+    }
+    .footer .box-container .box p,
+    .footer .box-container .box a {
+        font-size: 1.6rem; /* Adjust footer text size */
+    }
+
+    .footer .box-container .box .whatsapp-link a {
+        justify-content: center; /* Center WhatsApp link on mobile */
+    }
+}
+
+@media (max-width: 450px) {
+    html {
+        font-size: 45%; /* Smallest base font size for tiny screens */
+    }
+    .heading {
+        font-size: 4rem; /* Even smaller heading for tiny screens */
+    }
+    .home .content h3 {
+        font-size: 3.8rem;
+    }
+    .home .content p {
+        font-size: 1.5rem;
+    }
+    .btn {
+        font-size: 1.5rem;
+        padding: 0.8rem 3rem;
+    }
+    .header-logo {
+        height: 100px; /* Further reduce logo size for very small screens */
+    }
+}
