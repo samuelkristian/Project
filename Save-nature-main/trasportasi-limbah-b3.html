@@ -6,10 +6,111 @@
     <title>Transportasi Limbah B3 - PT. Mitra Biosfer Indonesia</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Gaya khusus untuk halaman detail (disamakan dengan pemanfaatan-limbah.html) */
+        .content-section {
+            padding: 8rem 7%; /* Konsisten dengan padding section lain */
+            text-align: left;
+            max-width: 900px; /* Batasi lebar untuk keterbacaan */
+            margin: 0 auto; /* Pusatkan konten */
+            min-height: calc(100vh - 200px); /* Pastikan konten cukup tinggi agar footer di bawah */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .content-section h1 {
+            font-size: 4.5rem; /* Ukuran heading yang lebih besar */
+            color: var(--dark-blue);
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        .content-section p {
+            font-size: 2.0rem; /* Ukuran font paragraf yang diperbesar */
+            line-height: 1.8;
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+        }
+        .content-section strong {
+            color: var(--primary-green); /* Menyorot teks tebal dengan warna hijau */
+        }
+
+        /* Gaya untuk gambar di dalam konten */
+        .content-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 3rem auto; /* Pusatkan gambar dan tambahkan jarak vertikal */
+            display: block; /* Jadikan elemen blok agar margin: auto berfungsi */
+            box-shadow: var(--box-shadow); /* Tambahkan bayangan halus */
+            opacity: 0; /* Mulai tersembunyi untuk animasi */
+            /* Menggunakan animasi bounceInUp */
+            animation: bounceInUp 1.2s ease-out forwards 0.5s; /* Animasi: nama, durasi, timing, fill-mode, delay */
+        }
+
+        /* Keyframes untuk animasi bounce-in-up (ke atas lalu sedikit ke bawah) */
+        @keyframes bounceInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(100px); /* Mulai jauh di bawah */
+            }
+            60% {
+                opacity: 1;
+                transform: translateY(-20px); /* Bergerak ke atas sedikit melewati posisi akhir */
+            }
+            80% {
+                transform: translateY(10px); /* Sedikit kembali ke bawah */
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0); /* Selesai di posisi akhir */
+            }
+        }
+
+        /* Memastikan footer selalu di bagian bawah halaman */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        main {
+            flex-grow: 1; /* Memastikan area konten utama mengambil ruang yang tersedia */
+        }
+
+        /* Gaya untuk tombol di bagian konten */
+        .content-section .btn-container {
+            text-align: center; /* Pusatkan tombol */
+            margin-top: 3rem; /* Jarak dari paragraf di atasnya */
+        }
+
+        /* Media Queries untuk responsivitas */
+        @media (max-width: 768px) {
+            .content-section {
+                padding: 6rem 3%;
+            }
+            .content-section h1 {
+                font-size: 3.5rem;
+            }
+            .content-section p {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 450px) {
+            .content-section h1 {
+                font-size: 3rem;
+            }
+            .content-section p {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
 </head>
 <body>
+
     <header>
-        <a href="index.html" class="logo"><span class="fas fa-globe-asia"></span>Indonesia</a>
+        <a href="index.html" class="logo">
+            <img src="images/logo.png" alt="Logo Mitra Biosfer Indonesia" class="header-logo"> Mitra Biosfer<span class="fas fa-globe-asia"></span>Indonesia
+        </a>
         <div id="menu" class="fas fa-bars"></div>
         <nav class="navbar">
             <a href="index.html#home">home</a>
@@ -21,18 +122,21 @@
         </nav>
     </header>
 
-    <section class="detail-page">
-        <div class="content">
-            
-
+    <main>
+        <section class="content-section">
             <h1>Transportasi Limbah B3</h1>
-            <p>Keselamatan dan kepatuhan regulasi adalah prioritas utama kami dalam layanan **transportasi limbah B3**. PT. Mitra Biosfer Indonesia menyediakan layanan pengangkutan limbah B3 yang aman dan terpercaya, didukung oleh izin transporter resmi dari Kementerian Lingkungan Hidup dan Kehutanan (KLHK) dan Direktorat Jenderal Perhubungan Darat (Dirjen Hubdar).</p>
+            <!-- Gambar ditambahkan di sini dengan animasi. Ganti URL placeholder dengan gambar Anda. -->
+            <img src="images/event1.jpg" alt="Transportasi Limbah B3" class="content-image">
+            <p>Keselamatan dan kepatuhan regulasi adalah prioritas utama kami dalam layanan <strong>transportasi limbah B3</strong>. PT. Mitra Biosfer Indonesia menyediakan layanan pengangkutan limbah B3 yang aman dan terpercaya, didukung oleh izin transporter resmi dari Kementerian Lingkungan Hidup dan Kehutanan (KLHK) dan Direktorat Jenderal Perhubungan Darat (Dirjen Hubdar).</p>
             <p>Kami memahami bahwa pengangkutan limbah B3 memerlukan prosedur yang ketat dan kendaraan yang memenuhi standar keamanan tinggi. Oleh karena itu, armada transportasi kami dilengkapi dengan fasilitas yang sesuai untuk penanganan limbah berbahaya, serta dioperasikan oleh tim yang terlatih dan bersertifikasi.</p>
             <p>Setiap pengiriman limbah B3 dilakukan dengan perencanaan yang matang, termasuk rute yang aman, jadwal yang efisien, dan dokumentasi lengkap sesuai dengan persyaratan pemerintah. Kami memastikan bahwa limbah diangkut dengan cara yang meminimalkan risiko tumpahan atau kontaminasi, dari lokasi sumber hingga fasilitas pengolahan kami.</p>
             <p>Layanan transportasi kami adalah bagian integral dari rantai pengelolaan limbah B3 yang komprehensif, memberikan ketenangan pikiran kepada klien kami bahwa limbah mereka ditangani dengan profesionalisme dan tanggung jawab penuh.</p>
-            <a href="index.html" class="btn">Kembali ke Beranda</a>
-        </div>
-    </section>
+            <!-- Tombol baru ditambahkan di sini -->
+            <div class="btn-container">
+                <a href="#" class="btn">Pelajari Lebih Lanjut</a>
+            </div>
+        </section>
+    </main>
 
     <div class="footer">
         <div class="box-container">
@@ -51,16 +155,17 @@
             </div>
             <div class="box">
                 <h3>Hubungi Kami</h3>
-                <p> <i class="fas fa-phone"></i> (021) 52393423 </p>
-                <p> <i class="fas fa-map-marker-alt"></i> Jl. Raya Sudamanik Kav. 10 Desa Lumpang, Kecamatan Parung Panjang, Kabupaten Bogor 16360 </p>
+                <p> <i class="fas fa-envelope"></i> orang@gmail.com </p>
+                <!-- Menambahkan kembali link WhatsApp -->
+                <p class="whatsapp-link"> <a href="https://wa.me/6287817817364" target="_blank" style="color: inherit; text-decoration: none;"><i class="fab fa-whatsapp"></i> WhatsApp 🙌</a> </p>
+                <p> <i class="fas fa-map-marker-alt"></i> Jl. jalan jalan </p>
             </div>
             <div class="box">
                 <h3>Ikuti Kami</h3>
-                <a href="#">facebook</a>
-                <a href="#">twitter</a>
-                <a href="#">instagram</a>
-                <a href="#">youtube</a>
-                <a href="#">linkedin</a>
+                <a href="https://www.facebook.com/yourprofile" target="_blank"><i class="fab fa-facebook-f"></i> facebook</a>
+                <a href="https://www.instagram.com/inacocoind?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><i class="fab fa-instagram"></i> instagram</a>
+                <a href="https://www.youtube.com/yourchannel" target="_blank"><i class="fab fa-youtube"></i> youtube</a>
+
             </div>
         </div>
     </div>

@@ -78,7 +78,7 @@ $(document).ready(function() {
         }
     });
 
-    // Handle scroll events (e.g., for header shadow, though not explicitly in original CSS)
+    // Handle scroll events (e.g., for header shadow)
     $(window).on('scroll', function() {
         if ($(window).scrollTop() > 80) { // If scrolled past 80px
             $('header').addClass('scrolled'); // Add a class for potential styling
@@ -92,4 +92,39 @@ $(document).ready(function() {
         $('header').addClass('scrolled');
     }
 
+    // --- Promo Popup Logic ---
+    const promoPopup = $('#promo-popup');
+    const closeButton = $('.close-button');
+    // const doNotShowCheckbox = $('#do-not-show'); // Dihapus karena fungsionalitas dihilangkan
+    // const localStorageKey = 'doNotShowPromoPopup'; // Dihapus karena fungsionalitas dihilangkan
+
+    // Function to show the popup
+    function showPromoPopup() {
+        promoPopup.addClass('active');
+    }
+
+    // Function to hide the popup
+    function hidePromoPopup() {
+        promoPopup.removeClass('active');
+    }
+
+    // Pop-up akan selalu muncul saat halaman dimuat (setelah sedikit penundaan)
+    setTimeout(showPromoPopup, 500); 
+
+    // Close button event listener
+    closeButton.on('click', function() {
+        hidePromoPopup();
+        // Logika untuk menyimpan preferensi "Jangan tampilkan lagi" telah dihapus
+    });
+
+    // Handle closing the popup if the user clicks outside of the content
+    $(window).on('click', function(event) {
+        if ($(event.target).is(promoPopup)) {
+            hidePromoPopup();
+            // Logika untuk menyimpan preferensi "Jangan tampilkan lagi" telah dihapus
+        }
+    });
+
+    // Baris ini dihapus karena fungsionalitas "Jangan tampilkan lagi" telah dihapus
+    // localStorage.removeItem(localStorageKey);
 });

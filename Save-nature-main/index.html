@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PT. Mitra Biosfer Indonesia</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
 
@@ -25,6 +24,34 @@
     </nav>
 </header>
 
+<div id="promo-popup" class="promo-popup">
+    <div class="promo-popup-content">
+        <!-- Gambar latar belakang untuk pop-up.
+             PENTING: Jika Anda menjalankan ini secara lokal (misalnya dengan Live Server),
+             pastikan file 'event1.jpg' ada di dalam folder 'images'
+             yang sejajar dengan file 'index.html' Anda.
+             Jika tidak ditemukan, gambar placeholder akan ditampilkan. -->
+        <img src="images/event1.jpg" alt="Promo Background" class="promo-background-image" onerror="this.onerror=null; this.src='https://placehold.co/500x150/cccccc/333333?text=Gambar+Tidak+Ditemukan'">
+        <span class="close-button">&times;</span>
+        <h2>Selamat Datang di PT. Mitra Biosfer Indonesia!</h2>
+        <p>Lihat penawaran spesial kami atau unduh brosur PDF untuk informasi lebih lanjut.</p>
+        <div class="promo-actions">
+            <!-- Tautan untuk "Lihat Iklan". URL YouTube ini sudah benar. -->
+            <button class="btn" onclick="window.open('https://youtu.be/Uxfh8OQrnfI?si=H0nEnqfLEHPIvcIp', '_blank')">Lihat Iklan</button>
+            <!-- Tautan untuk "Lihat pdf".
+                 Pesan "Cannot GET" biasanya berarti file PDF tidak ditemukan di jalur ini.
+                 Pastikan file 'Compro_MBI-2.pdf' benar-benar berada di direktori yang sama
+                 dengan file 'index.html' Anda.
+                 Contoh struktur folder jika PDF di root proyek:
+                 your-project-folder/
+                 ├── index.html
+                 └── Compro_MBI-2.pdf
+            -->
+            <a href="Compro_MBI-2.pdf" target="_blank" class="btn download-btn">Lihat pdf</a>
+        </div>
+        <!-- Bagian "Jangan tampilkan lagi" telah dihapus sesuai permintaan -->
+    </div>
+</div>
 <section class="home" id="home">
     <div class="content">
         <h3 id="typing-headline" data-text="Transforming Waste, Creating Value for the Future."></h3>
@@ -47,7 +74,8 @@
     <div class="icons">
         <img src="images/icon3.png" alt=""> <h3>Transportasi Limbah B3</h3>
         <p>Dengan dukungan izin transporter dari KLHK dan Dirjen Hubdar, kami juga menyediakan layanan pengangkutan limbah B3 yang aman dan sesuai dengan regulasi pemerintah.</p>
-        <a href="transportasi-limbah-b3.html" class="btn">Pelajari Lebih Lanjut</a> </div>
+        <!-- Perbaikan: Mengubah href dari transportasi-limbah-b3.html menjadi transportasi-limbah.html -->
+        <a href="trasportasi-limbah-b3.html" class="btn">Pelajari Lebih Lanjut</a> </div>
 
     <div class="icons">
         <img src="images/icon4.png" alt=""> <h3>Visi & Misi</h3>
@@ -95,7 +123,7 @@
         </div>
 
         <div class="box">
-            <img src="images/project-5.jpg" alt=""> <h3 class="title">Penyimpanan Sementara Limbah B3</h3>
+            <img src="images/project-1.jpg" alt=""> <h3 class="title">Penyimpanan Sementara Limbah B3</h3>
             <div class="info">
                 <h3>Penyimpanan Sementara</h3>
                 <p>Kami menyediakan layanan penyimpanan sementara untuk limbah B3 medis dan non-medis di fasilitas yang aman dan terkontrol, mematuhi regulasi lingkungan dan kesehatan.</p>
@@ -134,7 +162,7 @@
     <h1 class="heading">Nilai-nilai Perusahaan</h1>
     <div class="box-container">
         <div class="box">
-            <img src="images/value1.jpg" alt="">
+            <img src="images/project-1.jpg" alt="">
             <div class="info">
                 <h3>Keberlanjutan</h3>
                 <p>Kami berfokus pada solusi jangka panjang yang melindungi lingkungan dan menciptakan produk yang mendukung pembangunan hijau serta konservasi sumber daya alam.</p>
@@ -142,7 +170,7 @@
         </div>
 
         <div class="box">
-            <img src="images/value2.jpg" alt="">
+            <img src="images/project-1.jpg" alt="">
             <div class="info">
                 <h3>Integritas</h3>
                 <p>Kami menjunjung tinggi kejujuran, transparansi, dan etika kerja dalam semua aspek operasi bisnis.</p>
@@ -150,7 +178,7 @@
         </div>
 
         <div class="box">
-            <img src="images/value3.jpg" alt="">
+            <img src="images/project-2.jpg" alt="">
             <div class="info">
                 <h3>Inovasi</h3>
                 <p>Kami terus berinovasi dalam teknologi pengolahan dan pemanfaatan limbah B3, serta dalam menghasilkan produk ramah lingkungan.</p>
@@ -158,7 +186,7 @@
         </div>
 
         <div class="box">
-            <img src="images/value4.jpg" alt="">
+            <img src="images/project-1.jpg" alt="">
             <div class="info">
                 <h3>Keselamatan dan Kesehatan</h3>
                 <p>Kami mengutamakan keselamatan dan kesehatan dalam proses pengolahan limbah, transportasi, dan dampak produk kami.</p>
@@ -198,28 +226,29 @@
 
         <div class="box">
             <h3>Tautan Cepat</h3>
-            <a href="#home">Home</a>
-            <a href="#about">Tentang Kami</a>
-            <a href="#services">Layanan</a>
-            <a href="#whyus">Mengapa Kami</a>
-            <a href="#values">Nilai-nilai</a>
-            <a href="#legalitas">Legalitas</a>
+            <a href="index.html#home">Home</a>
+            <a href="index.html#about">Tentang Kami</a>
+            <a href="index.html#services">Layanan</a>
+            <a href="index.html#whyus">Mengapa Kami</a>
+            <a href="index.html#values">Nilai-nilai</a>
+            <a href="index.html#legalitas">Legalitas</a>
         </div>
 
         <div class="box">
             <h3>Hubungi Kami</h3>
-            <p> <i class="fas fa-phone"></i> (021) 52393423 </p>
-            <p class="whatsapp-link"> <a href="https://wa.me/6287817817364" target="_blank" style="color: inherit; text-decoration: none;"><i class="fab fa-whatsapp"></i> WhatsApp</a> </p>
-            <p> <i class="fas fa-map-marker-alt"></i> Jl. Raya Sudamanik Kav. 10 Desa Lumpang, Kecamatan Parung Panjang, Kabupaten Bogor 16360 </p>
+            <p> <i class="fas fa-envelope"></i> orang@gmail.com </p>
+                <!-- Menambahkan kembali link WhatsApp -->
+            <p class="whatsapp-link"> <a href="https://wa.me/6287817817364" target="_blank" style="color: inherit; text-decoration: none;"><i class="fab fa-whatsapp"></i> WhatsApp 🙌</a> </p>
+            <p> <i class="fas fa-map-marker-alt"></i> Jl. jalan </p>
         </div>
 
         <div class="box">
             <h3>Ikuti Kami</h3>
-            <a href="#">facebook</a>
-            <a href="#">twitter</a>
-            <a href="#">instagram</a>
-            <a href="#">youtube</a>
-            <a href="#">linkedin</a>
+            <a href="https://www.facebook.com/yourprofile" target="_blank"><i class="fab fa-facebook-f"></i> facebook</a>
+            <a href="https://twitter.com/yourprofile" target="_blank"><i class="fab fa-twitter"></i> twitter</a>
+            <a href="https://www.instagram.com/inacocoind?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><i class="fab fa-instagram"></i> instagram</a>
+            <a href="https://www.youtube.com/yourchannel" target="_blank"><i class="fab fa-youtube"></i> youtube</a>
+            <a href="https://www.linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin-in"></i> linkedin</a>
         </div>
     </div>
 </div>

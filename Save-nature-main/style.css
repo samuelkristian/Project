@@ -685,6 +685,159 @@ header .navbar a:hover {
     padding-right: 0; /* Remove extra padding if any */
 }
 
+/* Promo Popup Styles */
+.promo-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it's on top of other content */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.promo-popup.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.promo-popup-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+    overflow: hidden; /* Ensure content is clipped within the rounded corners */
+}
+
+.promo-popup.active .promo-popup-content {
+    transform: scale(1);
+}
+
+.promo-background-image {
+    width: 100%;
+    height: 150px; /* Adjust height as needed */
+    object-fit: cover; /* Cover the area, cropping if necessary */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin-bottom: 20px; /* Space between image and text */
+}
+
+.promo-popup-content h2 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.promo-popup-content p {
+    color: #666;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.close-button {
+    position: absolute;
+    top: 20px; /* Disesuaikan agar lebih jauh dari atas */
+    right: 20px; /* Disesuaikan agar lebih jauh dari kanan */
+    font-size: 24px;
+    cursor: pointer;
+    color: #666; /* Warna default tombol X */
+    z-index: 10; /* Ensure close button is above the image */
+    background-color: rgba(255, 255, 255, 0.7); /* Latar belakang semi-transparan */
+    border-radius: 50%; /* Membuatnya bulat */
+    width: 30px; /* Lebar tombol */
+    height: 30px; /* Tinggi tombol */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.close-button:hover {
+    color: #333; /* Warna teks saat hover (misalnya, abu-abu gelap) */
+    background-color: rgba(255, 255, 255, 1); /* Lebih padat saat hover */
+}
+
+.promo-actions {
+    display: flex; /* Use flexbox for button layout */
+    justify-content: center; /* Center buttons horizontally */
+    gap: 15px; /* Space between buttons */
+    margin-top: 20px;
+}
+
+.promo-actions .btn {
+    display: inline-flex; /* Use inline-flex for button content alignment */
+    align-items: center; /* Center text vertically */
+    justify-content: center; /* Center text horizontally */
+    margin: 0; /* Remove default margin from utility .btn */
+    padding: 12px 25px; /* Slightly more padding for a better feel */
+    border: none; /* Remove border */
+    border-radius: 50px; /* Fully rounded buttons */
+    font-size: 1.8rem; /* Larger font size for buttons */
+    font-weight: 600; /* Bolder text */
+    text-transform: uppercase; /* Uppercase text */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.promo-actions .btn:hover {
+    transform: translateY(-3px); /* Lift effect on hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+    color: #fff; /* Ensure text color remains white on hover */
+}
+
+.promo-actions .btn::before {
+    display: none; /* Hide the default .btn before pseudo-element */
+}
+
+.promo-actions .btn:hover::before {
+    width: 0; /* Override default hover effect */
+}
+
+/* Specific button styles */
+.promo-actions .btn:first-child { /* "Lihat Iklan" button */
+    background: linear-gradient(to right, #28a745, #218838); /* Green gradient */
+    color: #fff;
+}
+
+.promo-actions .btn:first-child:hover {
+    background: linear-gradient(to right, #218838, #1e7e34); /* Darker green gradient on hover */
+}
+
+.promo-actions .download-btn { /* "Unduh Brosur PDF" button */
+    background: linear-gradient(to right, #007bff, #0056b3); /* Blue gradient */
+    color: #fff;
+}
+
+.promo-actions .download-btn:hover {
+    background: linear-gradient(to right, #0056b3, #004085); /* Darker blue gradient on hover */
+}
+
+.do-not-show-again {
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #777;
+    display: flex; /* Use flexbox for checkbox and text alignment */
+    align-items: center;
+    justify-content: center;
+}
+
+.do-not-show-again input[type="checkbox"] {
+    margin-right: 8px; /* More space between checkbox and text */
+    transform: scale(1.2); /* Slightly larger checkbox */
+    cursor: pointer;
+}
+
 
 /* Media Queries */
 @media (max-width: 991px) {
@@ -697,7 +850,7 @@ header .navbar a:hover {
     }
 
     section {
-        padding: 0 3%; /* Adjust section padding */
+        padding: 0 3%;
         padding-top: 9rem;
     }
 
@@ -708,150 +861,90 @@ header .navbar a:hover {
     .home .content h3 {
         font-size: 5.5rem;
     }
-    .home .content p {
-        font-size: 1.7rem;
-    }
-
-    .icons-container {
-        margin-top: 0; /* Remove negative margin on small screens */
-        padding-top: 9rem; /* Ensure padding from header */
-    }
-
-    .legalitas .box-container .box {
-        padding: 3rem;
-    }
+    /* Add any other responsive adjustments needed for your layout */
 }
 
+/* Further smaller screen adjustments */
 @media (max-width: 768px) {
-    html {
-        font-size: 50%; /* Further decrease base font size for smaller devices */
-    }
-
     #menu {
-        display: block;
+        display: block; /* Show menu icon on small screens */
     }
 
     header .navbar {
-        position: fixed;
-        top: 8rem; /* Below header */
-        left: -120%; /* Hidden by default */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
         background: #fff;
-        width: 30rem;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        box-shadow: var(--box-shadow);
-        border-right: .1rem solid rgba(0, 0, 0, .1);
-        transition: left .4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        border-top: .1rem solid rgba(0, 0, 0, .1);
+        padding: 1rem 0;
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); /* Hidden by default */
     }
 
-    header .navbar.active {
-        left: 0; /* Slide in */
+    header .navbar.active { /* Changed from .nav-toggle to .active */
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); /* Visible when toggled */
     }
 
     header .navbar a {
-        font-size: 2.2rem;
-        margin: 1.5rem 0;
-        display: block; /* Ensure links take full width in mobile nav */
+        display: block;
+        margin: 1.5rem 2rem;
+        text-align: center;
     }
 
     .home .content h3 {
-        font-size: 4.5rem; /* Smaller heading for very small screens */
-    }
-    .home .content p {
-        font-size: 1.6rem; /* Slightly smaller text for very small screens */
+        font-size: 4.5rem;
     }
 
     .icons-container {
-        grid-template-columns: 1fr; /* Stack icons vertically on small screens */
-        padding: 4rem 5%; /* Adjust padding for icons container */
+        grid-template-columns: 1fr; /* Stack icons vertically on very small screens */
+        margin-top: 0; /* Remove negative margin */
     }
 
-    .icons-container .icons h3 {
-        font-size: 2.5rem; /* Adjust icon heading size */
-    }
-    .icons-container .icons p {
-        font-size: 1.6rem; /* Make text more readable */
-    }
-
-    .project .box-container {
-        grid-template-columns: 1fr; /* Stack projects vertically on small screens */
-        padding: 0 5%; /* Adjust padding for project container */
-    }
-
-    .project .box-container .box {
-        height: auto; /* Allow height to adjust */
-    }
-
-    .project .box-container .box .info p {
-        font-size: 1.6rem; /* Make project info text more readable */
-    }
-
-    .donate .box-container {
-        grid-template-columns: 1fr; /* Stack donate boxes vertically */
-        padding: 0 5%;
-    }
-    .donate .box-container .box p {
-        font-size: 1.6rem; /* Make donate text more readable */
-    }
-
-    .team .box-container {
-        grid-template-columns: 1fr; /* Stack team boxes vertically */
-        padding: 0 5%;
-    }
-    .team .box-container .box .info p {
-        font-size: 1.6rem; /* Make team info text more readable */
+    .project .box-container,
+    .donate .box-container,
+    .team .box-container,
+    .footer .box-container {
+        grid-template-columns: 1fr; /* Stack all sections on very small screens */
     }
 
     .legalitas .box-container .box {
-        padding: 2.5rem; /* Smaller padding for legalitas on very small screens */
+        padding: 2.5rem; /* Smaller padding for legalitas box */
     }
+
     .legalitas .box-container .box h3 {
         font-size: 2.8rem;
     }
+
     .legalitas .box-container .box p {
-        font-size: 1.6rem; /* Make legalitas text more readable */
-        line-height: 1.8;
+        font-size: 1.6rem;
     }
 
-    .footer .box-container {
-        grid-template-columns: 1fr; /* Stack footer columns vertically */
-        text-align: center; /* Center footer content */
-    }
-    .footer .box-container .box h3 {
-        font-size: 2.5rem; /* Adjust footer heading size */
-        padding-bottom: 1.5rem;
-    }
-    .footer .box-container .box p,
-    .footer .box-container .box a {
-        font-size: 1.6rem; /* Adjust footer text size */
+    .promo-popup-content {
+        max-width: 90%; /* Adjust max-width for smaller screens */
+        padding: 20px;
     }
 
-    .footer .box-container .box .whatsapp-link a {
-        justify-content: center; /* Center WhatsApp link on mobile */
+    .promo-actions {
+        flex-direction: column; /* Stack buttons vertically on small screens */
+        gap: 10px;
     }
 }
 
 @media (max-width: 450px) {
     html {
-        font-size: 45%; /* Smallest base font size for tiny screens */
+        font-size: 50%;
     }
-    .heading {
-        font-size: 4rem; /* Even smaller heading for tiny screens */
-    }
+
     .home .content h3 {
         font-size: 3.8rem;
     }
-    .home .content p {
-        font-size: 1.5rem;
+
+    .heading {
+        font-size: 4rem;
     }
-    .btn {
-        font-size: 1.5rem;
-        padding: 0.8rem 3rem;
-    }
-    .header-logo {
-        height: 100px; /* Further reduce logo size for very small screens */
+
+    .promo-actions .btn {
+        padding: 10px 20px;
+        font-size: 1.6rem;
     }
 }

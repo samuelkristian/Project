@@ -6,10 +6,137 @@
     <title>Visi & Misi - PT. Mitra Biosfer Indonesia</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    </head>
+    <style>
+        /* Gaya khusus untuk halaman detail (disamakan dengan pemanfaatan-limbah.html) */
+        .content-section {
+            padding: 8rem 7%; /* Konsisten dengan padding section lain */
+            text-align: left;
+            max-width: 900px; /* Batasi lebar untuk keterbacaan */
+            margin: 0 auto; /* Pusatkan konten */
+            min-height: calc(100vh - 200px); /* Pastikan konten cukup tinggi agar footer di bawah */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .content-section h1 {
+            font-size: 4.5rem; /* Ukuran heading yang lebih besar */
+            color: var(--dark-blue);
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        .content-section h2 { /* Gaya untuk sub-judul Visi dan Misi */
+            font-size: 3.5rem; /* Ukuran sub-heading yang lebih besar */
+            color: var(--primary-green); /* Warna hijau untuk menyorot */
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .content-section p {
+            font-size: 2.0rem; /* Ukuran font paragraf yang diperbesar */
+            line-height: 1.8;
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+        }
+        .content-section strong {
+            color: var(--primary-green); /* Menyorot teks tebal dengan warna hijau */
+        }
+        .content-section ul {
+            list-style: disc; /* Menggunakan bullet point */
+            padding-left: 2.5rem; /* Indentasi untuk daftar */
+            margin-bottom: 2rem;
+        }
+        .content-section ul li {
+            font-size: 2.0rem; /* Ukuran font untuk item daftar */
+            line-height: 1.8;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Gaya untuk gambar di dalam konten */
+        .content-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 3rem auto; /* Pusatkan gambar dan tambahkan jarak vertikal */
+            display: block; /* Jadikan elemen blok agar margin: auto berfungsi */
+            box-shadow: var(--box-shadow); /* Tambahkan bayangan halus */
+            opacity: 0; /* Mulai tersembunyi untuk animasi */
+            /* Menggunakan animasi bounceInUp */
+            animation: bounceInUp 1.2s ease-out forwards 0.5s; /* Animasi: nama, durasi, timing, fill-mode, delay */
+        }
+
+        /* Keyframes untuk animasi bounce-in-up (ke atas lalu sedikit ke bawah) */
+        @keyframes bounceInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(100px); /* Mulai jauh di bawah */
+            }
+            60% {
+                opacity: 1;
+                transform: translateY(-20px); /* Bergerak ke atas sedikit melewati posisi akhir */
+            }
+            80% {
+                transform: translateY(10px); /* Sedikit kembali ke bawah */
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0); /* Selesai di posisi akhir */
+            }
+        }
+
+        /* Memastikan footer selalu di bagian bawah halaman */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        main {
+            flex-grow: 1; /* Memastikan area konten utama mengambil ruang yang tersedia */
+        }
+
+        /* Gaya untuk tombol di bagian konten */
+        .content-section .btn-container {
+            text-align: center; /* Pusatkan tombol */
+            margin-top: 3rem; /* Jarak dari paragraf di atasnya */
+        }
+
+        /* Media Queries untuk responsivitas */
+        @media (max-width: 768px) {
+            .content-section {
+                padding: 6rem 3%;
+            }
+            .content-section h1 {
+                font-size: 3.5rem;
+            }
+            .content-section h2 {
+                font-size: 2.8rem;
+            }
+            .content-section p,
+            .content-section ul li {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 450px) {
+            .content-section h1 {
+                font-size: 3rem;
+            }
+            .content-section h2 {
+                font-size: 2.5rem;
+            }
+            .content-section p,
+            .content-section ul li {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
 <body>
+
     <header>
-        <a href="index.html" class="logo"><span class="fas fa-globe-asia"></span>Indonesia</a>
+        <a href="index.html" class="logo">
+            <img src="images/logo.png" alt="Logo Mitra Biosfer Indonesia" class="header-logo"> Mitra Biosfer<span class="fas fa-globe-asia"></span>Indonesia
+        </a>
         <div id="menu" class="fas fa-bars"></div>
         <nav class="navbar">
             <a href="index.html#home">home</a>
@@ -21,15 +148,15 @@
         </nav>
     </header>
 
-    <section class="detail-page">
-        <div class="content">
-      
-
+    <main>
+        <section class="content-section">
             <h1>Visi & Misi PT. Mitra Biosfer Indonesia</h1>
-            <p>Sebagai perusahaan yang berdedikasi pada pengelolaan limbah B3, PT. Mitra Biosfer Indonesia memiliki **visi dan misi** yang kuat untuk memandu setiap langkah operasional kami dan memastikan dampak positif bagi lingkungan dan masyarakat.</p>
+            <!-- Gambar ditambahkan di sini dengan animasi. Ganti URL placeholder dengan gambar Anda. -->
+            <img src="images/event1.jpg" alt="Visi dan Misi" class="content-image">
+            <p>Sebagai perusahaan yang berdedikasi pada pengelolaan limbah B3, PT. Mitra Biosfer Indonesia memiliki <strong>visi dan misi</strong> yang kuat untuk memandu setiap langkah operasional kami dan memastikan dampak positif bagi lingkungan dan masyarakat.</p>
 
             <h2>Visi</h2>
-            <p>Menjadi perusahaan terdepan dalam pengelolaan limbah B3 yang **inovatif dan berkelanjutan**, serta berkontribusi secara signifikan pada pelestarian lingkungan dan peningkatan kesejahteraan masyarakat di Indonesia.</p>
+            <p>Menjadi perusahaan terdepan dalam pengelolaan limbah B3 yang <strong>inovatif dan berkelanjutan</strong>, serta berkontribusi secara signifikan pada pelestarian lingkungan dan peningkatan kesejahteraan masyarakat di Indonesia.</p>
             <p>Kami bercita-cita untuk menjadi pionir dalam penerapan teknologi ramah lingkungan dan solusi terdepan dalam mengatasi tantangan limbah B3, menciptakan masa depan yang lebih bersih dan sehat untuk generasi mendatang.</p>
 
             <h2>Misi</h2>
@@ -41,9 +168,12 @@
                 <li><strong>Membangun Kemitraan Strategis:</strong> Berkolaborasi dengan pemerintah, industri, dan komunitas untuk menciptakan ekosistem pengelolaan limbah yang lebih efektif dan berkelanjutan.</li>
                 <li><strong>Mengedepankan Prinsip Keberlanjutan:</strong> Menjamin bahwa setiap operasional kami meminimalkan dampak negatif terhadap lingkungan dan memaksimalkan manfaat sosial dan ekonomi.</li>
             </ul>
-            <a href="index.html" class="btn">Kembali ke Beranda</a>
-        </div>
-    </section>
+            <!-- Tombol baru ditambahkan di sini -->
+            <div class="btn-container">
+                <a href="index.html" class="btn">Kembali</a>
+            </div>
+        </section>
+    </main>
 
     <div class="footer">
         <div class="box-container">
@@ -62,16 +192,17 @@
             </div>
             <div class="box">
                 <h3>Hubungi Kami</h3>
-                <p> <i class="fas fa-phone"></i> (021) 52393423 </p>
-                <p> <i class="fas fa-map-marker-alt"></i> Jl. Raya Sudamanik Kav. 10 Desa Lumpang, Kecamatan Parung Panjang, Kabupaten Bogor 16360 </p>
+                <p> <i class="fas fa-envelope"></i> orang@gmail.com </p>
+                <!-- Menambahkan kembali link WhatsApp -->
+                <p class="whatsapp-link"> <a href="https://wa.me/6287817817364" target="_blank" style="color: inherit; text-decoration: none;"><i class="fab fa-whatsapp"></i> WhatsApp 🙌</a> </p>
+                <p> <i class="fas fa-map-marker-alt"></i> Jl. jalan jalan </p>
             </div>
             <div class="box">
                 <h3>Ikuti Kami</h3>
-                <a href="#">facebook</a>
-                <a href="#">twitter</a>
-                <a href="#">instagram</a>
-                <a href="#">youtube</a>
-                <a href="#">linkedin</a>
+                <a href="https://www.facebook.com/yourprofile" target="_blank"><i class="fab fa-facebook-f"></i> facebook</a>
+                <a href="https://www.instagram.com/inacocoind?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><i class="fab fa-instagram"></i> instagram</a>
+                <a href="https://www.youtube.com/yourchannel" target="_blank"><i class="fab fa-youtube"></i> youtube</a>
+
             </div>
         </div>
     </div>
